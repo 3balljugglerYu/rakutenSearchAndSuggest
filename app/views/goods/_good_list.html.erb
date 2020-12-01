@@ -1,0 +1,15 @@
+<% if @items.present? %>
+  <% @items.first(10).each do |item| %>
+    <div class="list">
+      <%# if item.url %>
+        <%#= link_to (image_tag(item.small_image_urls)), item.url %>
+      <%#end%>
+      <%= link_to (image_tag(item.medium_image_urls.first)), item.url %>
+      <%= item.name %>
+
+      <%#= item.author %>
+      <%#= item.review_average %>
+    </div>
+  <% end %>
+<% end %>
+
