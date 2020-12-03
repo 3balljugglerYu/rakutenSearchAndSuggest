@@ -1,11 +1,11 @@
 class GoodsController < ApplicationController
-  require 'rakuten_web_service'
 
   def search
     if params[:keyword].present?
+    # if params[:keyword].present? && params[:keyword].gsub(" ","").length >= 2
       # binding.pry
-      # @items = RakutenWebService::Ichibaitem.search(title: params[:keyword])
       @items = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword])
+      # binding.pry
     else
       render :search
     end
