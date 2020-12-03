@@ -1,17 +1,19 @@
-
-<%# @keywords = @keywords.split(/[[:blank:]]+/) %>
-<%#= @keywords %>
-<%# @keywords.each do |keyword| %>
-  <%#= keyword %>
 <% if params[:keyword].present? %>
-  <div>
-    <%= @items.count %>件ヒットしました
+  <div class="lists-wrapper">
+    <% @items.first(27).each do |item| %>
+      <div class="lists">
+        <div class="item-image">
+          <%= link_to (image_tag(item.medium_image_urls[0])), item.url %>
+        </div>
+        <div class="price-outer">
+          <div class="price-inner">
+            <p> 価格 <%= item.price %> 円 </p>
+          </div>
+        </div>
+        <div class="sub-title">
+          <p><%= item.name %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <% @items.first(3).each do |item| %>
-    <div class="list">
-      <%= link_to (image_tag(item.medium_image_urls[0])), item.url %>
-      <%= item.name %>
-    </div>
-  <% end %>
 <% end %>
-<%# end %>
