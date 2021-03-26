@@ -1,14 +1,20 @@
-<div class="title">
+<header class="title">
   <h1>Rakuten Search</h1>
-</div>
-<div class='content'>
-  <div id="search-box">
-    <%= form_with(url: root_path, local: true, method: :get, class: "search") do |form| %>
-      <%= form.text_field :keyword, placeholder: "検索する", class: "search-input" %>
-      <%= form.submit "検索", class: "search-btn" %>
-    <% end %>
+</header>
+
+<main>
+  <div>楽天が提供しているAPIであれば、上手くいきます。</div>
+  <%= link_to "サジェストAPIへ移動する", goods_path %>
+
+  <div class='content'>
+    <div id="search-box">
+      <%= form_with(url: root_path, local: true, method: :get, class: "search") do |form| %>
+        <%= form.text_field :keyword, placeholder: "検索する", class: "search-input" %>
+        <%= form.submit "検索", class: "search-btn" %>
+      <% end %>
+    </div>
+    <div id='good_list'>
+      <%= render partial: 'good_list' %>
+    </div>
   </div>
-  <div id='good_list'>
-    <%= render partial: 'good_list' %>
-  </div>
-</div>
+</main>

@@ -9,4 +9,8 @@ class GoodsController < ApplicationController
       render :search
     end
   end
+
+  def suggest
+  end
+
 end
